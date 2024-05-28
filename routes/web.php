@@ -31,6 +31,7 @@ Route::middleware(['auth', 'verified'])
                         Route::resource('types', TypeController::class);
                         Route::resource('technologies', TechnologyController::class);
                         Route::get('type-projects', [TypeController::class, 'typeProjects'])->name('type_projects');
+                        Route::resource('admin.projects.show', ProjectController::class);
                     });
 
 Route::middleware('auth')->group(function () {

@@ -70,7 +70,7 @@
                     <td class="d-flex gap-1">
                         <a
                             class="btn btn-success"
-                            href="{{ route('admin.projects.show') }}">
+                            href="{{ route('admin.projects.show', $project) }}">
                             <i class="fa-solid fa-eye"></i>
                         </a>
 
