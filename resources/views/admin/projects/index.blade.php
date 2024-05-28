@@ -68,11 +68,11 @@
 
 
                     <td class="d-flex gap-1">
-                        <button
-                            class="btn btn-warning"
-                            onclick="submitForm({{ $project->id }})">
-                            <i class="fa-solid fa-pencil"></i>
-                        </button>
+                        <a
+                            class="btn btn-success"
+                            href="{{ route('admin.projects.show') }}">
+                            <i class="fa-solid fa-eye"></i>
+                        </a>
 
                         <form
                             action="{{ route('admin.projects.destroy', $project) }}" method="POST"
