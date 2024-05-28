@@ -14,10 +14,13 @@ class ProjectTechnologyTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $project = Project::inRandomOrder()->first();
+        for($i = 0; $i < 20; $i++){
 
-        $technology_id = Technology::inRandomOrder()->first()->id;
+            $project = Project::inRandomOrder()->first();
 
-        $project->technologies()->attach($technology_id);
+            $technology_id = Technology::inRandomOrder()->first()->id;
+
+            $project->technologies()->attach($technology_id);
+        }
     }
 }
