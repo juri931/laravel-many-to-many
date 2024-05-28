@@ -35,13 +35,14 @@
 
     <table class="table crud-table">
         <thead>
-            <tr>
+            <tr class="text-center">
                 <th scope="col">Progetti</th>
                 <th scope="col">Tipologia</th>
+                <th scope="col">Tecnologia</th>
                 <th scope="col">Azioni</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="text-center">
             @foreach ($project as $project)
                 <tr>
                     <td>
@@ -56,6 +57,15 @@
                     </td>
 
                     <td>{{ $project->type->name }}</td>
+
+                    <td class="technology">
+                        @forelse ($project->technologies as $technology)
+                            <li>{{ $technology->name }}</li>
+                        @empty
+                            <li>Nessuna tecnologia</li>
+                        @endforelse
+                    </td>
+
 
                     <td class="d-flex gap-1">
                         <button

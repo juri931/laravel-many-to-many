@@ -20,6 +20,17 @@ header {
     .content {
         padding: 80px 210px;
     }
+    tbody {
+        tr {
+            td {
+            }
+        }
+    }
+    .technology {
+        li {
+            list-style: none;
+        }
+    }
 }
 
 aside {
