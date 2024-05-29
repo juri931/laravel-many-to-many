@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Functions\Helper;
 use App\Models\Project;
-use Carbon\Carbon;
 
 class ProjectController extends Controller
 {
@@ -32,22 +31,18 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-            $form_data = $request->all();
-
-            $new_project = new Project();
-            $new_project->name = $form_data['name'];
-            $new_project->slug = Helper::generateSlug($form_data['name'], new Project());
-            $new_project->category = $form_data['category'];
-            $new_project->description = $form_data['description'];
-            $new_project->created = Carbon::today();
-            $new_project->type_id = rand(1,8);
-            dd($new_project);
-            $new_project->save();
-
+        $exists = Project::where('name', $request->name)->first();
+        if ($exists) {
+            return redirect()->route('admin.projects.index')->with('error', 'Progetto già esistente');
+        }else{
+            $new = new Project();
+            $new->name = $request->name;
+            $new->slug = Helper::generateSlug($new->name, Project::class);
+            $new->save();
 
             return redirect()->route('admin.projects.index')->with('success', 'Progetto creato correttamente');
         }
-
+    }
 
     /**
      * Display the specified resource.
