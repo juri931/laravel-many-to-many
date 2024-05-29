@@ -5,7 +5,6 @@
     <h1>Form creazione progetto</h1>
 
     <form action="{{route('admin.projects.store')}}" method="POST">
-        @csrf
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="name">Nome</label>
@@ -24,8 +23,6 @@
         </div>
 
         <button type="submit" class="btn btn-primary my-2">Invia</button>
-        <button type="reset" class="btn btn-warning my-2">Reset</button>
-
     </form>
 
 
